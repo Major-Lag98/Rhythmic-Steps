@@ -25,21 +25,12 @@ public class ArrowSpawner : MonoBehaviour
     private void Start()
     {
         // For testing: Create a simple chart (Spawn notes on beats 1, 2, 3, 4)
-        GameObject arrow = Instantiate(arrowPrefabs[0], spawnPoints[0].transform.position, Quaternion.identity);
-        arrow.GetComponent<ArrowBehaviour>().TargetBeat = 1f;
-        songChart.Add(arrow);
-
-        GameObject arrow2 = Instantiate(arrowPrefabs[0], spawnPoints[1].transform.position, Quaternion.identity);
-        arrow2.GetComponent<ArrowBehaviour>().TargetBeat = 2f; 
-        songChart.Add(arrow2);
-
-        GameObject arrow3 = Instantiate(arrowPrefabs[0], spawnPoints[2].transform.position, Quaternion.identity);
-        arrow3.GetComponent <ArrowBehaviour>().TargetBeat = 3f;
-        songChart.Add(arrow3);
-
-        GameObject arrow4 = Instantiate(arrowPrefabs[0], spawnPoints[3].transform.position, Quaternion.identity);
-        arrow4.GetComponent<ArrowBehaviour>().TargetBeat = 4f;
-        songChart.Add(arrow4);
+        for (int i = 0; i < 4; i++)
+        {
+            GameObject arrow = Instantiate(arrowPrefabs[0], spawnPoints[i].position, Quaternion.identity);
+            arrow.GetComponent<ArrowBehaviour>().TargetBeat = i + 1f;
+            songChart.Add(arrow);
+        }
     }
 
     private void Update()

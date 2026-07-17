@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 98273186}
   - component: {fileID: 98273187}
   m_Layer: 0
-  m_Name: RhythmManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,8 +167,7 @@ MonoBehaviour:
   songAudioSource: {fileID: 1179782466}
   audioOffset: 0
   bpm: 108
-  debugSongTime: 0
-  debugBeat: 0
+  secPerBeat: 0
 --- !u!1 &484916089
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +646,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowBehaviour
   beatType: 0
+  speed: 1
+  TargetBeat: 4
+  MissDistance: 0.5
 --- !u!1 &1517878873
 GameObject:
   m_ObjectHideFlags: 0

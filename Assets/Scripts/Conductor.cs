@@ -15,11 +15,12 @@ public class Conductor : MonoBehaviour
     public float currentSongTime { get; private set; } // The current time of the song in seconds
     public float currentBeat { get; private set; }
 
-    private float secPerBeat; // The number of seconds per beat, calculated from the BPM
+    public float secPerBeat; // The number of seconds per beat, calculated from the BPM
 
     // Awake is called when the script instance is being loaded
     private void Awake()
     {
+        // Singleton guard
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 

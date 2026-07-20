@@ -1,4 +1,5 @@
 using System.IO;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class Conductor : MonoBehaviour
@@ -10,6 +11,8 @@ public class Conductor : MonoBehaviour
 
     [SerializeField] private AudioSource songAudioSource; // The AudioSource component that will play the music
     [SerializeField] private float audioOffset = 0.00f; // Sometimes a songs beat doesnt start the instant the song starts
+    
+    public float ScrollSpeed = 1.0f; // The speed at which the arrows move (units per second)
 
     public float bpm = 120f; // 120 is common idk I need something to start with
     public float currentSongTime { get; private set; } // The current time of the song in seconds

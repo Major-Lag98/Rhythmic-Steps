@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   songAudioSource: {fileID: 1179782466}
   audioOffset: 0
+  ScrollSpeed: 1.5
   bpm: 108
   secPerBeat: 0
 --- !u!1 &220058499
@@ -214,6 +215,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   arrowPrefabs:
+  - {fileID: 7496132247486760535, guid: 0b1a8b3cbed7ff84ea07d6535379d34b, type: 3}
+  - {fileID: 7496132247486760535, guid: 0b1a8b3cbed7ff84ea07d6535379d34b, type: 3}
+  - {fileID: 7496132247486760535, guid: 0b1a8b3cbed7ff84ea07d6535379d34b, type: 3}
   - {fileID: 7496132247486760535, guid: 0b1a8b3cbed7ff84ea07d6535379d34b, type: 3}
   spawnPoints:
   - {fileID: 484916091}

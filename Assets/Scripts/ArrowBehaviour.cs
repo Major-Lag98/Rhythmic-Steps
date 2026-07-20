@@ -5,11 +5,16 @@ public class ArrowBehaviour : MonoBehaviour
 
     public BeatType beatType; // The beat type of the arrow, set in the Unity Inspector
 
-    [SerializeField] private float speed = 5f; // The speed at which the arrow moves (units per second)
+    private float speed; // The speed at which the arrow moves (units per second)
 
     public float TargetBeat;
 
     public float MissDistance = 0.5f; // The distance at which the arrow is considered missed
+
+    private void Start()
+    {
+        speed = Conductor.Instance.ScrollSpeed; // 
+    }
 
     // Update is called once per frame
     void Update()

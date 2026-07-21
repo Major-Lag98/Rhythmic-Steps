@@ -219,12 +219,6 @@ MonoBehaviour:
   - {fileID: 7496132247486760535, guid: 0b1a8b3cbed7ff84ea07d6535379d34b, type: 3}
   - {fileID: 7496132247486760535, guid: 0b1a8b3cbed7ff84ea07d6535379d34b, type: 3}
   - {fileID: 7496132247486760535, guid: 0b1a8b3cbed7ff84ea07d6535379d34b, type: 3}
-  spawnPoints:
-  - {fileID: 484916091}
-  - {fileID: 828154490}
-  - {fileID: 2070065893}
-  - {fileID: 590207919}
-  beatsAheadToSpawn: 4
 --- !u!4 &484916091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5446211650747267445, guid: 7fc4484896690f84dba271ca0b4b5207, type: 3}
@@ -734,7 +728,7 @@ Transform:
   m_GameObject: {fileID: 1517878873}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.62, y: -2.89, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -757,6 +751,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   lanePrefab: {fileID: 4787093051645880168, guid: 7fc4484896690f84dba271ca0b4b5207, type: 3}
+  stepZoneLanesList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2070065892
 GameObject:
   m_ObjectHideFlags: 0

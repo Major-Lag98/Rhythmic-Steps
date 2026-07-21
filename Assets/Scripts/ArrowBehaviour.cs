@@ -11,9 +11,15 @@ public class ArrowBehaviour : MonoBehaviour
 
     public float MissDistance = 0.5f; // The distance at which the arrow is considered missed
 
+    public int LaneIndex; // The index of the lane this arrow belongs to (0 = Left, 1 = Down, 2 = Up, 3 = Right)
+
+    //Vector3 StepZonePos;
+
     private void Start()
     {
-        speed = Conductor.Instance.ScrollSpeed; // 
+        speed = Conductor.Instance.ScrollSpeed;
+        //// Cache initial step zone position; we'll read the current position each frame
+        //StepZonePos = StepZone.Instance.transform.position;
     }
 
     // Update is called once per frame
@@ -26,7 +32,12 @@ public class ArrowBehaviour : MonoBehaviour
 
         float newYPosition = beatDifference * speed;
 
-        transform.localPosition = new Vector3(transform.localPosition.x, newYPosition, 0);
+        // Make y=0 of the arrow prefab be relative to the StepZone's world Y position.
+        // Use the StepZone's current world position in case it moves at runtime.
+        Vector3 currentStepZonePos = StepZone.Instance.transform.position;
+        float worldY = currentStepZonePos.y + newYPosition;
+
+        transform.position = new Vector3(StepZone.Instance.stepZoneLanesList[LaneIndex].transform.position.x, worldY, transform.position.z);
 
         if (beatDifference < -MissDistance)
         {

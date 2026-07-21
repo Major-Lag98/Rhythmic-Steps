@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ArrowSpawner : MonoBehaviour
@@ -9,14 +8,14 @@ public class ArrowSpawner : MonoBehaviour
 
     [Header("Prefabs & Spawn Positions")]
     [SerializeField] private GameObject[] arrowPrefabs; // Array of 4 arrow prefabs
-    [SerializeField] private Transform[] spawnPoints;   // Array of 4 Transform positions
+    // [SerializeField] private Transform[] spawnPoints;   // Array of 4 Transform positions
 
     [Header("Chart Settings")]
-    [SerializeField] private float beatsAheadToSpawn = 4f; // Spawn arrows 4 beats before they must be hit
+    // [SerializeField] private float beatsAheadToSpawn = 4f; // Spawn arrows 4 beats before they must be hit
 
     // A list of notes representing your level chart (ordered by targetBeat)
     private List<GameObject> songChart = new List<GameObject>();
-    private int nextNoteIndex = 0;
+    // private int nextNoteIndex = 0;
 
     private void Start()
     {
@@ -33,8 +32,8 @@ public class ArrowSpawner : MonoBehaviour
         if (arrowPrefabs.Length != 4)
             Debug.LogWarning("arrowPrefabs should contain 4 prefabs (one per lane).");
         // Warn if spawnPoints doesn't contain four transforms (one per lane)
-        if (spawnPoints.Length != 4)
-            Debug.LogWarning("spawnPoints should contain 4 transforms (one per lane).");
+        //if (spawnPoints.Length != 4)
+        //    Debug.LogWarning("spawnPoints should contain 4 transforms (one per lane).");
 
         // Split the file text into non-empty lines, handling both Carriage Return and Line Feed
         string[] rawLineList = chartText.text.Split(new[] { '\r', '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
@@ -57,11 +56,12 @@ public class ArrowSpawner : MonoBehaviour
                 if (line[laneIndex] == '1')
                 {
                     // Instantiate the lane-specific arrow prefab at the corresponding spawn point
-                    GameObject arrow = Instantiate(arrowPrefabs[laneIndex], spawnPoints[laneIndex].position, Quaternion.identity);
+                    GameObject arrow = Instantiate(arrowPrefabs[laneIndex], StepZone.Instance.stepZoneLanesList[laneIndex].transform.position, Quaternion.identity);
                     // Try to set the TargetBeat on the ArrowBehaviour component if it exists
                     var behaviour = arrow.GetComponent<ArrowBehaviour>();
                     if (behaviour != null)
                         behaviour.TargetBeat = beatIndex;
+                        behaviour.LaneIndex = laneIndex;
                     // Add the spawned arrow to the songChart list for tracking
                     songChart.Add(arrow);
                 }
